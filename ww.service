@@ -1,0 +1,14 @@
+# stored in /lib/systemd/system/ww.service
+[Unit]
+Description=ww - Window Watcher as a microservice
+Documentation=https://example.com
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/node /home/pi/dev/windowwatcher/ww.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

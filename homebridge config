@@ -1,0 +1,27 @@
+{
+    "bridge": {
+        "name": "Homebridge D28C",
+        "username": "0E:C1:12:18:D2:8C",
+        "port": 52509,
+        "pin": "031-45-154"
+    },
+    "accessories": [],
+    "platforms": [
+        {
+            "platform": "Nest",
+            "access_token": <snip>
+        },
+        {
+            "platform": "HttpWebHooks",
+            "webhook_port": "51828",
+            "cache_directory": "/homebridge/node_modules/homebridge-http-webhooks/.node-persist/storage",
+            "sensors": [
+                {
+                    "id": "sensor1",
+                    "name": "Master Bedroom Window",
+                    "type": "contact"
+                }
+            ]
+        }
+    ]
+}
