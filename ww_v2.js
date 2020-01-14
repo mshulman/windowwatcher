@@ -27,7 +27,6 @@ function updateServer (isClosed) {
   console.log(finalURL)
 
   fetch(finalURL)
-    .then(checkStatus)
     .then(res => res.json())
     .then(json => console.log(json))
 }
