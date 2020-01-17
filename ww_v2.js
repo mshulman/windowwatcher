@@ -31,6 +31,10 @@ function updateServer (isClosed) {
     .then(json => console.log(json))
 }
 
+const startupPosition = sensor.readSync()
+console.log('At startup, window is ' + (startupPosition === 0 ? 'closed' : 'open'))
+updateServer(!startupPosition)
+
 sensor.watch((err, value) => {
   if (err) {
     throw err;
