@@ -17,8 +17,8 @@ Software:
 * Homebridge SKP (“custom” package for Synology)
 
 Node packages:
-* onoff
-* node-fetch
+* [onoff](https://www.npmjs.com/package/onoff)
+* [node-fetch](https://www.npmjs.com/package/node-fetch)
 * homebridge-nest
 * homebridge-http-webhooks
 
@@ -26,7 +26,17 @@ The code:
 * ww.js (runs on Raspberry Pi)
 * ww.service (manages ww.js service)
 
+Instructions:
+1. Create a new SD card for your pi, boot to it, connect via ssh
+2. Make sure that node is up-to-date
+3. Install onoff: % npm install onoff
+4. Install node-fetch % npm install node-fetch
+5. Put ww.js on the device
+6. Test ww.js: % node ww.js
+7. Create service config
+
 How it works:
+
 Whenever the window sensor detects that the window has changed, either from closed to open, or open to closed, the Pi makes an outbound HTTP GET request to homebridge-http-webhooks, running on my Synology NAS in a Docker container, and exposing port 51828. The GET call passes the name of the window and the new state. In this case, the window’s ID is sensor1, and the sensor state is false, indicating that the sensor is open.
 
 http://192.168.85.100:51828?accessoryId=sensor1&state=false
